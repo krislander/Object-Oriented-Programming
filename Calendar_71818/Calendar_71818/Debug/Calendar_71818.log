@@ -1,0 +1,4 @@
+﻿  Calendar_71818.cpp
+c:\users\kremen\source\repos\calendar_71818\calendar_71818\calendar_71818.cpp(13): error C4700: uninitialized local variable 'day' used
+c:\users\kremen\source\repos\calendar_71818\calendar_71818\calendar_71818.cpp(13): error C4700: uninitialized local variable 'year' used
+c:\users\kremen\source\repos\calendar_71818\calendar_71818\calendar_71818.cpp(13): error C4700: uninitialized local variable 'month' used
