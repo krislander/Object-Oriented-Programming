@@ -37,8 +37,8 @@ private:
 		this->tasks = temp;
 	}
 public:
-	void addTask(Task*& task);
-	void removeTask(Task*& task);
+	void addTask(Task* task);
+	void removeTask(Task* task);
 	//write
 	//read
 	//getter za day month year otdelno ot Date
@@ -59,7 +59,7 @@ public:
 	~Day();
 };
 
-void Day::addTask(Task*& task)
+void Day::addTask(Task* task)
 {
 	if (this->currentSize >= this->capacity)
 	{
@@ -68,7 +68,7 @@ void Day::addTask(Task*& task)
 	this->tasks[this->currentSize++] = task;
 }
 
-void Day::removeTask(Task*& task)
+void Day::removeTask(Task* task)
 {
 	size_t index = -1;
 	for (size_t i = 0; i < this->currentSize; i++)

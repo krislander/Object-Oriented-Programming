@@ -1,9 +1,8 @@
 #pragma once
 #include "stdafx.h"
-#include <iostream>
-#include <cstring>
 #include "Time.h"
 #include "Date.h"
+#include "Types.h"
 
 
 class Task
@@ -12,17 +11,9 @@ private:
 	char* title;
 	char* description;
 	Time start;
-	Time end; //otdelen klas za vremeto kadeto pravq proverka dali e validno
+	Time end; 
 	Date date;
-
-	//trqbva da se dobavi data?????
-	enum Types
-	{
-		Default,
-		Business,
-		Education,
-		Entertainment
-	};
+	
 	Types type;
 	static int id;
 
@@ -35,6 +26,7 @@ private:
 		this->start = other.start;
 		this->end = other.end;
 		this->type = other.type;
+		this->date = other.date;
 	}
 	virtual void destroy()
 	{
@@ -42,31 +34,35 @@ private:
 		delete[] this->description;
 	}
 public:
+	enum Types
+	{
+		Default,
+		Business,
+		Education,
+		Entertainment
+	};
 
 	//tuka shte ima print
 
 	Task();
-	Task(const char* title, const char* description, Time start, Time end);
+	Task(const char* title, const char* description, Time start, Time end, Types type);
 	Task(const Task& other);
 	Task& operator=(const Task& other);
 	~Task();
 };
 
+int Task::id = 0;
+
 Task::Task()
 {
-	this->title = new char[15];
-	strcpy_s(this->title, 15, "basic title");
-	this->description = new char[15];
-	strcpy_s(this->description, 15, "this is text");
-	Time start2;
-	Time end2;
-	this->start = start2;
-	this->end = end2;
+	this->title = new char[1];
+	strcpy_s(this->title, 1, "");
+	this->description = new char[1];
+	strcpy_s(this->description, 1, "");
 	this->type = Default;
-	this->id = 0;
 }
 
-Task::Task(const char * title, const char * description, Time start, Time end)
+Task::Task(const char * title, const char * description, Time start, Time end, Types type)
 {
 	this->title = new char[strlen(title) + 1];
 	strcpy_s(this->title, strlen(title) + 1, title);
@@ -75,6 +71,7 @@ Task::Task(const char * title, const char * description, Time start, Time end)
 	this->start = start;
 	this->end = end;
 	this->type = type;
+	this->id++;
 }
 
 Task::Task(const Task & other)

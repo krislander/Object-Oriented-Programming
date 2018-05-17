@@ -23,6 +23,7 @@ private:
 public:
 	Person();
 	Person(const char* firstName, const char* lastName);
+	Person& operator=(const Person& other);
 	Person(const Person& other);
 	~Person();
 };
@@ -41,6 +42,16 @@ Person::Person(const char * firstName, const char * lastName)
 	strcpy_s(this->firstName, strlen(firstName) + 1, firstName);
 	this->lastName = new char[strlen(lastName) + 1];
 	strcpy_s(this->lastName, strlen(lastName) + 1, lastName);
+}
+
+Person & Person::operator=(const Person & other)
+{
+	if (this!=&other)
+	{
+		this->destroy();
+		this->copy(other);
+	}
+	return *this;
 }
 
 Person::Person(const Person & other)

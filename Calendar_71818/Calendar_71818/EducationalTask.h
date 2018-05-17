@@ -21,13 +21,13 @@ private:
 	}
 
 public:
+
+
 	EducationalTask();
-	EducationalTask(const char* title, const char* description, Time start, Time end, const char* subjectName, const char* stuffToDo);
+	EducationalTask(const char* title, const char* description, Time start, Time end, Types type, const char* subjectName, const char* stuffToDo);
 	EducationalTask(const EducationalTask& other);
 	EducationalTask& operator=(const EducationalTask& other);
 	~EducationalTask();
-
-	
 };
 
 EducationalTask::EducationalTask() : Task()
@@ -38,8 +38,8 @@ EducationalTask::EducationalTask() : Task()
 	strcpy_s(this->stuffToDo, 1, "");
 }
 
-EducationalTask::EducationalTask(const char* title, const char* description, Time start, Time end, const char* subjectName, const char* stuffToDo)
-	:Task(title, description, start, end)
+EducationalTask::EducationalTask(const char* title, const char* description, Time start, Time end, Types type, const char* subjectName, const char* stuffToDo)
+	:Task(title, description, start, end, type)
 {
 	this->subjectName = new char[strlen(subjectName) + 1];
 	strcpy_s(this->subjectName, strlen(subjectName) + 1, subjectName);
