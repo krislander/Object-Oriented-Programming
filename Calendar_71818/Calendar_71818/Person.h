@@ -26,6 +26,7 @@ public:
 	Person& operator=(const Person& other);
 	Person(const Person& other);
 	~Person();
+	void print();
 };
 
 Person::Person()
@@ -62,4 +63,10 @@ Person::Person(const Person & other)
 Person::~Person()
 {
 	this->destroy();
+}
+
+void Person::print()
+{
+	cout << "First name: " << this->firstName << endl;
+	cout << "Last name: " << this->lastName << endl;
 }

@@ -21,14 +21,21 @@ private:
 	}
 
 public:
-
+	void print();
 
 	EducationalTask();
-	EducationalTask(const char* title, const char* description, Time start, Time end, Types type, const char* subjectName, const char* stuffToDo);
+	EducationalTask(const char* title, const char* description, Time start, Time end, Types type, Date date, const char* subjectName, const char* stuffToDo);
 	EducationalTask(const EducationalTask& other);
 	EducationalTask& operator=(const EducationalTask& other);
 	~EducationalTask();
 };
+
+void EducationalTask::print()
+{
+	Task::print();
+	cout << "Subject of study: " << this->subjectName << endl;
+	cout << "Material to study: " << this->stuffToDo << endl;
+}
 
 EducationalTask::EducationalTask() : Task()
 {
@@ -38,8 +45,8 @@ EducationalTask::EducationalTask() : Task()
 	strcpy_s(this->stuffToDo, 1, "");
 }
 
-EducationalTask::EducationalTask(const char* title, const char* description, Time start, Time end, Types type, const char* subjectName, const char* stuffToDo)
-	:Task(title, description, start, end, type)
+EducationalTask::EducationalTask(const char* title, const char* description, Time start, Time end, Types type, Date date, const char* subjectName, const char* stuffToDo)
+	:Task(title, description, start, end, type,date)
 {
 	this->subjectName = new char[strlen(subjectName) + 1];
 	strcpy_s(this->subjectName, strlen(subjectName) + 1, subjectName);

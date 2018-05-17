@@ -13,9 +13,7 @@ public:
 	void addDay(Day day);
 	void removeDay(Day day);
 	void print();
-	//void write
-	//void read
-	//dali trqbva da ima addDate i removeDate
+	//dobavqme addDay i removeDay
 
 	Month();
 	Month(LList<Day> days);
@@ -77,7 +75,7 @@ void Month::addDay(Day day)
 
 void Month::removeDay(Day day)
 {
-	this-days.pop
+	this->days.removeAllocc(day);
 }
 
 Month::Month()

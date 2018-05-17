@@ -32,8 +32,9 @@ public:
 
 	EntertainmentTask();
 	EntertainmentTask(const EntertainmentTask& other);
-	EntertainmentTask(const char* title, const char* description, Time start, Time end, Types type, TypesOfEntertainment typeOfFun, const char* location);
+	EntertainmentTask(const char* title, const char* description, Time start, Time end, Types type, Date date, TypesOfEntertainment typeOfFun, const char* location);
 	~EntertainmentTask();
+	//dobavqne na print
 };
 
 EntertainmentTask::EntertainmentTask() :Task()
@@ -46,8 +47,8 @@ EntertainmentTask::EntertainmentTask(const EntertainmentTask & other) :Task(othe
 {
 	this->copy(other);
 }
-EntertainmentTask::EntertainmentTask(const char* title, const char* description, Time start, Time end, Types type, TypesOfEntertainment typeOfFun, const char* location)
-	: Task(title, description, start, end, type)
+EntertainmentTask::EntertainmentTask(const char* title, const char* description, Time start, Time end, Types type, Date date, TypesOfEntertainment typeOfFun, const char* location)
+	: Task(title, description, start, end, type,date)
 {
 	this->location = new char[strlen(location) + 1];
 	strcpy_s(this->location, strlen(location) + 1, location);

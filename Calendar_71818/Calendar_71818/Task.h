@@ -42,16 +42,36 @@ public:
 		Entertainment
 	};
 
-	//tuka shte ima print
+	void print();
+	const Date getDate() const;
 
 	Task();
-	Task(const char* title, const char* description, Time start, Time end, Types type);
+	Task(const char* title, const char* description, Time start, Time end, Types type, Date date);
 	Task(const Task& other);
 	Task& operator=(const Task& other);
 	~Task();
 };
 
 int Task::id = 0;
+
+void Task::print()
+{
+	cout << "Title of task: " << this->title << endl;
+	cout << "Type of task: " << this->type << endl;
+	cout << "Description: " << this->description << endl;
+	cout << "Date: ";
+	this->date.print();
+	cout << "Start time: ";
+	this->start.print();
+	this->end.print();
+	cout << "Number of task: " << this->id << endl;
+
+}
+
+const Date Task::getDate() const
+{
+	return Date(this->date);
+}
 
 Task::Task()
 {
@@ -62,7 +82,7 @@ Task::Task()
 	this->type = Default;
 }
 
-Task::Task(const char * title, const char * description, Time start, Time end, Types type)
+Task::Task(const char * title, const char * description, Time start, Time end, Types type, Date date)
 {
 	this->title = new char[strlen(title) + 1];
 	strcpy_s(this->title, strlen(title) + 1, title);
@@ -71,6 +91,7 @@ Task::Task(const char * title, const char * description, Time start, Time end, T
 	this->start = start;
 	this->end = end;
 	this->type = type;
+	this->date = date;
 	this->id++;
 }
 

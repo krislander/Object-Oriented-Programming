@@ -27,9 +27,10 @@ public:
 	bool validDuration(Time start, Time end);
 	void TaskDuration(Time start, Time end);
 	const Time getDuration() const;
+	void print();
 
 	BusinessTask();
-	BusinessTask(const char * title, const char * description, Time start, Time end, Types type, LList<Person> peopleAtMeeting, const char* location, Time duration, Person host);
+	BusinessTask(const char * title, const char * description, Time start, Time end, Types type, Date date, LList<Person> peopleAtMeeting, const char* location, Time duration, Person host);
 	BusinessTask(const BusinessTask& other);
 	~BusinessTask();
 };
@@ -59,14 +60,26 @@ const Time BusinessTask::getDuration() const
 	return this->duration;
 }
 
+void BusinessTask::print()
+{
+	Task::print();
+	cout << "People at the meeting: " << endl;
+	this->peopleAtMeeting.printData();
+	cout << "Location of the meeting: " << this->location << endl;
+	cout << "Duration of the meeting: ";
+	this->duration.print();
+	cout << "Name of host: ";
+	this->host.print();
+}
+
 BusinessTask::BusinessTask() :Task()
 {
 	this->location = new char[1];
 	strcpy_s(this->location, 1, "");
 }
 
-BusinessTask::BusinessTask(const char * title, const char * description, Time start, Time end, Types type, LList<Person> peopleAtMeeting, const char * location, Time duration, Person host)
-	:Task(title, description, start, end, type)
+BusinessTask::BusinessTask(const char * title, const char * description, Time start, Time end, Types type, Date date, LList<Person> peopleAtMeeting, const char * location, Time duration, Person host)
+	:Task(title, description, start, end, type,date)
 {
 	this->peopleAtMeeting = peopleAtMeeting;
 	this->location = new char[strlen(location) + 1];
