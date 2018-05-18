@@ -68,8 +68,5 @@
     <ClCompile Include="Calendar_71818.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Month.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

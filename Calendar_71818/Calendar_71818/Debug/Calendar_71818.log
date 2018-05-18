@@ -1,3 +1,7 @@
-﻿  stdafx.cpp
+﻿  Month.cpp
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\month.cpp(1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
   Calendar_71818.cpp
-  Calendar_71818.vcxproj -> D:\Github\Object-Oriented-Programming\Calendar_71818\Debug\Calendar_71818.exe
+  Generating Code...
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\calendar_71818.cpp(14): error C4700: uninitialized local variable 'year' used
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\calendar_71818.cpp(14): error C4700: uninitialized local variable 'month' used
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\calendar_71818.cpp(14): error C4700: uninitialized local variable 'day' used

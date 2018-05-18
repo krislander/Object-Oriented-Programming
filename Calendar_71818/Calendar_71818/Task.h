@@ -5,7 +5,7 @@
 #include "Types.h"
 
 
-class Task
+class Task: public Date
 {
 private:
 	char* title;

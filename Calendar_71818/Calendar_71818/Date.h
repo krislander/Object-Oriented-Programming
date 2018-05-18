@@ -15,6 +15,10 @@ public:
 	Date(int day, int month, int year);
 	bool valid(const int day, const int month, const int year);
 	void print();
+	const int getDay() const;
+	const int getMonth() const;
+	const int getYear() const;
+
 };
 
 Date::Date()
@@ -71,4 +75,19 @@ void Date::print()
 		cout << "Date: " << day << ". " << "0" << month << ". " << year << endl;
 	}
 	cout << "Date: " << day << ". "  << month << ". " << year << endl;
+}
+
+const int Date::getDay() const
+{
+	return this->day;
+}
+
+const int Date::getMonth() const
+{
+	return this->month;
+}
+
+const int Date::getYear() const
+{
+	return this->year;
 }
