@@ -28,6 +28,9 @@ public:
 	void TaskDuration(Time start, Time end);
 	const Time getDuration() const;
 	void print();
+	void write(ofstream& stream);
+	void read(ifstream& stream);
+	void addTask(Task& task);
 
 	BusinessTask();
 	BusinessTask(const char * title, const char * description, Time start, Time end, Types type, Date date, LList<Person> peopleAtMeeting, const char* location, Time duration, Person host);
@@ -72,6 +75,76 @@ void BusinessTask::print()
 	this->host.print();
 }
 
+void BusinessTask::write(ofstream & stream)
+{
+	//v person za peopleAtMeeting
+	stream << this->location;
+	//vav Time za duration
+	//vav person za host
+}
+
+void BusinessTask::read(ifstream & stream)
+{
+	//v person za peopleAtMeeting
+	stream >> this->location;
+	//vav Time za duration
+	//vav person za host
+}
+
+void BusinessTask::addTask(Task & task)
+{
+	std::cout << "Enter title of the task: " << std::endl;
+	cin.getline(this->title, strlen(this->title));
+	std::cout << "Give a description to your task: " << std::endl;
+	cin.getline(this->description, strlen(this->description));
+	std::cout << "What time does the event start? " << std::endl;
+	int tempHours = 0, tempMinutes = 0;
+	std::cin >> tempHours;
+	this->start.setHours(tempHours);
+	std::cin >> tempMinutes;
+	this->start.setMinutes(tempMinutes);
+	std::cout << "What time does the event end? " << std::endl;
+	cin >> tempHours;
+	this->end.setHours(tempHours);
+	cin >> tempMinutes;
+	this->end.setMinutes(tempMinutes);
+	if (tempMinutes>59 && tempHours>23 && tempMinutes<0 && tempHours<0)
+	{
+		std::cout << "Invalid Time input! " << std::endl;
+	}
+	std::cout << "How many people are gonna be at the event? " << std::endl;
+	int numberOfPeople;
+	cin >> numberOfPeople;
+	if (numberOfPeople<=0)
+	{
+		std::cout << "Wrong input!" << std::endl;
+	for (int i = 0; i < numberOfPeople; i++)
+	{
+		Person temp;
+		std::cout << "Enter the first name: " << std::endl;
+		char* name;
+		cin.getline(name, strlen(name) + 1);
+		temp.setFirstName(name);
+		cin.getline(name, strlen(name) + 1);
+		temp.setLastName(name);
+		this->peopleAtMeeting.push_back(temp);
+	}
+	}
+	std::cout << "What is the location of the event?" << std::endl;
+	cin.getline(this->location, strlen(this->location));
+	std::cout << "Host? " << std::endl;
+	Person tempoooraryy;
+	std::cout << "Enter the first name: " << std::endl;
+	char* name;
+	cin.getline(name, strlen(name) + 1);
+	tempoooraryy.setFirstName(name);
+	cin.getline(name, strlen(name) + 1);
+	tempoooraryy.setLastName(name);
+	this->peopleAtMeeting.push_back(tempoooraryy);
+}
+
+
+//the big four
 BusinessTask::BusinessTask() :Task()
 {
 	this->location = new char[1];
@@ -79,7 +152,7 @@ BusinessTask::BusinessTask() :Task()
 }
 
 BusinessTask::BusinessTask(const char * title, const char * description, Time start, Time end, Types type, Date date, LList<Person> peopleAtMeeting, const char * location, Time duration, Person host)
-	:Task(title, description, start, end, type,date)
+	:Task(title, description, start, end, type=Business,date)
 {
 	this->peopleAtMeeting = peopleAtMeeting;
 	this->location = new char[strlen(location) + 1];

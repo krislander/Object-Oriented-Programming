@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 
@@ -18,6 +19,8 @@ public:
 	const int getDay() const;
 	const int getMonth() const;
 	const int getYear() const;
+	void write(ofstream& stream);
+	void read(ifstream& stream);
 
 };
 
@@ -90,4 +93,18 @@ const int Date::getMonth() const
 const int Date::getYear() const
 {
 	return this->year;
+}
+
+void Date::write(ofstream & stream)
+{
+	stream << this->day;
+	stream << this->month;
+	stream << this->year;
+}
+
+void Date::read(ifstream & stream)
+{
+	stream >> this->day;
+	stream >> this->month;
+	stream >> this->year;
 }

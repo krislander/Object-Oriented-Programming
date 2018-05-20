@@ -1,89 +1,74 @@
 #pragma once
-//#include "Day.h"
-//
-//class Month
-//{
-//private:
-//	LList<Day> days;
-//	size_t numberOfMonth;
-//	size_t daysPerMonth;
-//public:
-//	void DaysInMonth(size_t numbrOfMonth);
-//	void addDay(Day day);
-//	void removeDay(Day day);
-//	void print();
-//	//dobavqme addDay i removeDay
-//
-//	Month();
-//	Month(LList<Day> days);
-//};
-//
-//void Month::DaysInMonth(size_t numberOfMonth)
-//{
-//	if (numberOfMonth>=1 && numberOfMonth<=12)
-//	{
-//		switch (numberOfMonth)
-//		{
-//		case 1:
-//			this->daysPerMonth = 31;
-//			break;
-//		case 2:
-//			this->daysPerMonth = 28;
-//			break;
-//		case 3:
-//			this->daysPerMonth = 31;
-//			break;
-//		case 4:
-//			this->daysPerMonth = 30;
-//			break;
-//		case 5:
-//			this->daysPerMonth = 31;
-//			break;
-//		case 6:
-//			this->daysPerMonth = 30;
-//			break;
-//		case 7:
-//			this->daysPerMonth = 31;
-//			break;
-//		case 8:
-//			this->daysPerMonth = 31;
-//			break;
-//		case 9:
-//			this->daysPerMonth = 30;
-//			break;
-//		case 10:
-//			this->daysPerMonth = 31;
-//			break;
-//		case 11:
-//			this->daysPerMonth = 30;
-//			break;
-//		case 12:
-//			this->daysPerMonth = 31;
-//			break;
-//			default:
-//				break;
-//		}
-//	}	
-//	cout << "Incorrect input!" << endl;
-//}
-//
-//void Month::addDay(Day day)
-//{
-//	this->days.push_back(day);
-//}
-//
-//void Month::removeDay(Day day)
-//{
-//	this->days.removeAllocc(day);
-//}
-//
-//Month::Month()
-//{
-//	this->numberOfMonth = 1;
-//	this->daysPerMonth = 31;
-//}
-//
-//Month::Month(LList<Day> days)
-//{
-//	this->days = days;
-//}
+#include "Day.h"
+
+class Month
+{
+private:
+	Day * days;
+	size_t currentSize;
+
+	void copy(const Month& other)
+	{
+		this->days = new Day[other.currentSize];
+		for (int i = 0; i < currentSize; i++)
+		{
+			this->days[i] = other.days[i];
+		}
+		this->currentSize = other.currentSize;
+	}
+	void destroy()
+	{
+		delete[] this->days;
+	}
+public:
+	void print();
+
+	Month();
+	Month(size_t currentSize);
+	Month(const Month& other);
+	Month& operator=(const Month& other);
+	~Month();
+};
+
+
+void Month::print()
+{
+	for (int i = 0; i < currentSize; i++)
+	{
+		this->days[i].printAllTasks();
+	}
+}
+
+Month::Month()
+{
+	this->currentSize = 0;
+	this->days = 0;
+}
+
+Month::Month(size_t currentSize)
+{
+	this->currentSize = currentSize;
+	this->days = new Day[currentSize];
+}
+
+Month::Month(const Month & other)
+{
+	this->copy(other);
+}
+
+Month & Month::operator=(const Month & other)
+{
+	if (this != &other)
+	{
+		this->destroy();
+		this->copy(other);
+	}
+
+	return *this;
+}
+
+Month::~Month()
+{
+	this->destroy();
+}
+

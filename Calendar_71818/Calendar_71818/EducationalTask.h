@@ -22,6 +22,7 @@ private:
 
 public:
 	void print();
+	void addTask(Task& task);
 
 	EducationalTask();
 	EducationalTask(const char* title, const char* description, Time start, Time end, Types type, Date date, const char* subjectName, const char* stuffToDo);
@@ -37,6 +38,34 @@ void EducationalTask::print()
 	cout << "Material to study: " << this->stuffToDo << endl;
 }
 
+void EducationalTask::addTask(Task & task)
+{
+	std::cout << "Enter title of the task: " << std::endl;
+	cin.getline(this->title, strlen(this->title));
+	std::cout << "Give a description to your task: " << std::endl;
+	cin.getline(this->description, strlen(this->description));
+	std::cout << "What time does the event start? " << std::endl;
+	int tempHours = 0, tempMinutes = 0;
+	std::cin >> tempHours;
+	this->start.setHours(tempHours);
+	std::cin >> tempMinutes;
+	this->start.setMinutes(tempMinutes);
+	std::cout << "What time does the event end? " << std::endl;
+	cin >> tempHours;
+	this->end.setHours(tempHours);
+	cin >> tempMinutes;
+	this->end.setMinutes(tempMinutes);
+	if (tempMinutes>59 && tempHours>23 && tempMinutes<0 && tempHours<0)
+	{
+		std::cout << "Invalid Time input! " << std::endl;
+	}
+	std::cout << "What subject do you have to study? " << std::endl;
+	cin.getline(this->subjectName, strlen(this->subjectName));
+	std::cout << "What material do you have to study? " << std::endl;
+	cin.getline(this->stuffToDo, strlen(this->stuffToDo));
+}
+
+
 EducationalTask::EducationalTask() : Task()
 {
 	this->subjectName = new char[1];
@@ -46,7 +75,7 @@ EducationalTask::EducationalTask() : Task()
 }
 
 EducationalTask::EducationalTask(const char* title, const char* description, Time start, Time end, Types type, Date date, const char* subjectName, const char* stuffToDo)
-	:Task(title, description, start, end, type,date)
+	:Task(title, description, start, end, type=Education,date)
 {
 	this->subjectName = new char[strlen(subjectName) + 1];
 	strcpy_s(this->subjectName, strlen(subjectName) + 1, subjectName);

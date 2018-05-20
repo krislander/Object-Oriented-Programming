@@ -1,7 +1,9 @@
-﻿  Month.cpp
-d:\github\object-oriented-programming\calendar_71818\calendar_71818\month.cpp(1): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
-  Calendar_71818.cpp
-  Generating Code...
-d:\github\object-oriented-programming\calendar_71818\calendar_71818\calendar_71818.cpp(14): error C4700: uninitialized local variable 'year' used
-d:\github\object-oriented-programming\calendar_71818\calendar_71818\calendar_71818.cpp(14): error C4700: uninitialized local variable 'month' used
-d:\github\object-oriented-programming\calendar_71818\calendar_71818\calendar_71818.cpp(14): error C4700: uninitialized local variable 'day' used
+﻿  Calendar_71818.cpp
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\day.h(15): warning C4018: '<': signed/unsigned mismatch
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\day.h(24): warning C4018: '<': signed/unsigned mismatch
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\day.h(34): warning C4018: '<': signed/unsigned mismatch
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\day.h(116): warning C4018: '<': signed/unsigned mismatch
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\month.h(13): warning C4018: '<': signed/unsigned mismatch
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\month.h(36): warning C4018: '<': signed/unsigned mismatch
+d:\github\object-oriented-programming\calendar_71818\calendar_71818\time.h(74): warning C4172: returning address of local variable or temporary: newTime
+  Calendar_71818.vcxproj -> D:\Github\Object-Oriented-Programming\Calendar_71818\Debug\Calendar_71818.exe

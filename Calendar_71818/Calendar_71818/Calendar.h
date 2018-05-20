@@ -1,55 +1,86 @@
 #pragma once
 #include "Task.h"
 #include "Date.h"
-#include "LList.h"
+#include "Month.h"
 
 class Calendar
 {
 private:
-	char* description;
-	LList<Task> tasks;
-
+	Month* months;
 	void copy(const Calendar& other)
 	{
-		this->description = new char[strlen(other.description) + 1];
-		strcpy_s(this->description, strlen(other.description) + 1, other.description);
+		this->months = new Month[12];
+		for (int i = 0; i < 12; i++)
+		{
+			this->months[i] = other.months[i];
+		}
 	}
 	void destroy()
 	{
-		delete[] this->description;
+		delete[] this->months;
 	}
 public:
-	void addTask(Task task);
-	void removeTask(Task task);
-	void printNeededTasks();
-	const Task getDateOfTask() const;
-	//teq laina trqbva da gi sravnq
+	void print();
 
 	Calendar();
 	Calendar(const Calendar& other);
-	Calendar operator=(const Calendar& other);
+	Calendar& operator=(const Calendar& other);
 	~Calendar();
-
-
 };
 
-void Calendar::addTask(Task task)
+void Calendar::print()
 {
-	this->tasks.push_back(task);
-}
-void Calendar::removeTask(Task task)
-{
-	this->tasks.removeAllocc(task);
-}
-
-void Calendar::printNeededTasks()
-{
-	for (int i = 0; i < tasks.getNumberOfElements(); i++)
+	for (int i = 0; i < 12; i++)
 	{
-		if (true)
-		{
+		this->months[i].print();
+	}
+}
 
+Calendar::Calendar()
+{
+	this->months = new Month[12];
+	
+	for (int i = 0; i < 12; i++)
+	{
+		if (i==3 && i==5 && i==8 && i==10)
+		{
+			Month temp(30);
+			this->months[i] = temp;
+		}
+		else if (i==1)
+		{
+			Month temp(28);
+			this->months[i] = temp;
+		}
+		else
+		{
+			Month temp(31);
+			this->months[i] = temp;
 		}
 	}
 }
+
+Calendar::Calendar(const Calendar & other)
+{
+	this->copy(other);
+}
+
+Calendar & Calendar::operator=(const Calendar & other)
+{
+	if (this != &other)
+	{
+		this->destroy();
+		this->copy(other);
+	}
+
+	return *this;
+}
+
+Calendar::~Calendar()
+{
+	this->destroy();
+}
+
+
+
 

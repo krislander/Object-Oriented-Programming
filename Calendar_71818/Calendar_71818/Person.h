@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#pragma warning (disable : 4996)
 
 
 class Person
@@ -10,10 +12,10 @@ private:
 
 	void copy(const Person& other)
 	{	
-			this->firstName = new char[strlen(other.firstName) + 1];
-			strcpy_s(this->firstName, strlen(other.firstName) + 1, other.firstName);
-			this->lastName = new char[strlen(other.lastName) + 1];
-			strcpy_s(this->lastName, strlen(other.lastName) + 1, other.lastName);
+		this->firstName = new char[strlen(other.firstName) + 1];
+		strcpy_s(this->firstName, strlen(other.firstName) + 1, other.firstName);
+		this->lastName = new char[strlen(other.lastName) + 1];
+		strcpy_s(this->lastName, strlen(other.lastName) + 1, other.lastName);
 	}
 	void destroy()
 	{
@@ -27,6 +29,8 @@ public:
 	Person(const Person& other);
 	~Person();
 	void print();
+	void setFirstName(const char* firstName);
+	void setLastName(const char* lastName);
 };
 
 Person::Person()
@@ -69,4 +73,16 @@ void Person::print()
 {
 	cout << "First name: " << this->firstName << endl;
 	cout << "Last name: " << this->lastName << endl;
+}
+
+void Person::setFirstName(const char * firstName)
+{
+	this->firstName = new char[strlen(firstName)+1];
+	strcpy(this->firstName, firstName);
+}
+
+void Person::setLastName(const char * lastName)
+{
+	this->lastName = new char[strlen(lastName) + 1];
+	strcpy(this->lastName, lastName);
 }

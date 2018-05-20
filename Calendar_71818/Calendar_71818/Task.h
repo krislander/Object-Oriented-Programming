@@ -2,18 +2,25 @@
 #include "stdafx.h"
 #include "Time.h"
 #include "Date.h"
-#include "Types.h"
+#include <fstream>
 
 
-class Task: public Date
+class Task
 {
-private:
+public:
+	enum Types
+	{
+		Default,
+		Business,
+		Education,
+		Entertainment
+	};
+protected:
 	char* title;
 	char* description;
 	Time start;
 	Time end; 
 	Date date;
-	
 	Types type;
 	static int id;
 
@@ -34,16 +41,12 @@ private:
 		delete[] this->description;
 	}
 public:
-	enum Types
-	{
-		Default,
-		Business,
-		Education,
-		Entertainment
-	};
 
 	void print();
 	const Date getDate() const;
+	virtual void write(ofstream& stream);
+	virtual void read(ifstream& stream);
+	virtual void addTask(Task& task) = 0;
 
 	Task();
 	Task(const char* title, const char* description, Time start, Time end, Types type, Date date);
@@ -57,7 +60,6 @@ int Task::id = 0;
 void Task::print()
 {
 	cout << "Title of task: " << this->title << endl;
-	cout << "Type of task: " << this->type << endl;
 	cout << "Description: " << this->description << endl;
 	cout << "Date: ";
 	this->date.print();
@@ -70,8 +72,25 @@ void Task::print()
 
 const Date Task::getDate() const
 {
-	return Date(this->date);
+	return this->date;
 }
+
+void Task::write(ofstream & stream)
+{
+	stream << this->title;
+	stream << this->description;
+	//Date i Time izvikvam ot classovete
+	this->id++;
+}
+
+void Task::read(ifstream & stream)
+{
+	stream >> this->title;
+	stream >> this->description;
+	//Date i Time
+}
+
+
 
 Task::Task()
 {
@@ -80,6 +99,7 @@ Task::Task()
 	this->description = new char[1];
 	strcpy_s(this->description, 1, "");
 	this->type = Default;
+	this->id++;
 }
 
 Task::Task(const char * title, const char * description, Time start, Time end, Types type, Date date)
@@ -92,7 +112,6 @@ Task::Task(const char * title, const char * description, Time start, Time end, T
 	this->end = end;
 	this->type = type;
 	this->date = date;
-	this->id++;
 }
 
 Task::Task(const Task & other)
@@ -114,5 +133,6 @@ Task & Task::operator=(const Task & other)
 Task::~Task()
 {
 	this->destroy();
+	this->id--;
 }
 

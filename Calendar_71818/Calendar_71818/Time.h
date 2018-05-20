@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ public:
 	void setHours(int hours);
 	void setMinutes(int minutes);
 	void print();
+	void write(ofstream& stream);
+	void read(ifstream& stream);
 };
 
 Time::Time()
@@ -120,4 +123,16 @@ void Time::print()
 	{
 		cout << hours << ":" << minutes << endl;
 	}
+}
+
+void Time::write(ofstream & stream)
+{
+	stream << this->hours;
+	stream << this->minutes;
+}
+
+void Time::read(ifstream & stream)
+{
+	stream >> this->hours;
+	stream >> this->minutes;
 }

@@ -152,6 +152,7 @@
     <ClInclude Include="Date.h" />
     <ClInclude Include="Day.h" />
     <ClInclude Include="EducationalTask.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="EntertainmentTask.h" />
     <ClInclude Include="LList.h" />
     <ClInclude Include="Month.h" />
@@ -160,7 +161,6 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="Time.h" />
-    <ClInclude Include="Types.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
