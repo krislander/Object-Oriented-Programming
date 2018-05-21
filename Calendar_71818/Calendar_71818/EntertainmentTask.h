@@ -7,9 +7,9 @@ public:
 	enum TypesOfEntertainment
 	{
 		Default,
-		BurningChurches,
+		Movies,
 		Drinking,
-		Weed
+		Swimming,
 	};
 private:
 	TypesOfEntertainment typeOfFun;
@@ -31,14 +31,13 @@ private:
 	}
 public:
 	void print();
-	void addTask(Task& task);
+	void initializeTask(int day, int month, int type);
 
 
 	EntertainmentTask();
 	EntertainmentTask(const EntertainmentTask& other);
 	EntertainmentTask(const char* title, const char* description, Time start, Time end, Types type, Date date, TypesOfEntertainment typeOfFun, const char* location);
 	~EntertainmentTask();
-	//dobavqne na print
 };
 
 void EntertainmentTask::print()
@@ -48,7 +47,7 @@ void EntertainmentTask::print()
 	cout << "Location: " << this->location << endl;
 }
 
-void EntertainmentTask::addTask(Task & task)
+void EntertainmentTask::initializeTask(int day, int month, int type)
 {
 	std::cout << "Enter title of the task: " << std::endl;
 	cin.getline(this->title, strlen(this->title));
@@ -69,10 +68,23 @@ void EntertainmentTask::addTask(Task & task)
 	{
 		std::cout << "Invalid Time input! " << std::endl;
 	}
+	//types of entertainment
 	std::cout << "What is the type of Entertainment? " << std::endl;
-	int type;
-	cin >> type;
-	TypesOfEntertainment userInput = type;
+	int typeEntertainment;
+	cin >> typeEntertainment;
+	TypesOfEntertainment userInput;
+	if (typeEntertainment == 1)
+		userInput = Movies;
+	if (typeEntertainment == 2)
+		userInput = Drinking;
+	if (typeEntertainment == 3)
+		userInput = Swimming;
+	else
+		std::cout << "Invalid input! " << std::endl;
+	//location
+	std::cout << "Where is the location? " << std::endl;
+	cin.getline(this->location, strlen(this->location));
+	//weathercheck???
 }
 
 EntertainmentTask::EntertainmentTask() :Task()

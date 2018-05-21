@@ -1,7 +1,5 @@
 #pragma once
 #include <iostream>
-#include <fstream>
-#pragma warning (disable : 4996)
 
 
 class Person
@@ -23,14 +21,15 @@ private:
 		delete[] this->lastName;
 	}
 public:
+	void print();
+	void setFirstName(const char* firstName);
+	void setLastName(const char* lastName);
+
 	Person();
 	Person(const char* firstName, const char* lastName);
 	Person& operator=(const Person& other);
 	Person(const Person& other);
-	~Person();
-	void print();
-	void setFirstName(const char* firstName);
-	void setLastName(const char* lastName);
+	~Person();	
 };
 
 Person::Person()
@@ -78,11 +77,11 @@ void Person::print()
 void Person::setFirstName(const char * firstName)
 {
 	this->firstName = new char[strlen(firstName)+1];
-	strcpy(this->firstName, firstName);
+	strcpy_s(this->firstName, strlen(firstName)+1, firstName);
 }
 
 void Person::setLastName(const char * lastName)
 {
 	this->lastName = new char[strlen(lastName) + 1];
-	strcpy(this->lastName, lastName);
+	strcpy_s(this->lastName,strlen(lastName)+1, lastName);
 }

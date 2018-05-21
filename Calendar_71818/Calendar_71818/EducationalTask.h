@@ -22,7 +22,7 @@ private:
 
 public:
 	void print();
-	void addTask(Task& task);
+	void initializeTask(int day, int month, int type);
 
 	EducationalTask();
 	EducationalTask(const char* title, const char* description, Time start, Time end, Types type, Date date, const char* subjectName, const char* stuffToDo);
@@ -38,7 +38,7 @@ void EducationalTask::print()
 	cout << "Material to study: " << this->stuffToDo << endl;
 }
 
-void EducationalTask::addTask(Task & task)
+void EducationalTask::initializeTask(int day, int month, int type)
 {
 	std::cout << "Enter title of the task: " << std::endl;
 	cin.getline(this->title, strlen(this->title));

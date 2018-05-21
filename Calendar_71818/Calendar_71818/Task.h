@@ -46,7 +46,7 @@ public:
 	const Date getDate() const;
 	virtual void write(ofstream& stream);
 	virtual void read(ifstream& stream);
-	virtual void addTask(Task& task) = 0;
+	virtual void initializeTask(int day, int month, int type) = 0;
 
 	Task();
 	Task(const char* title, const char* description, Time start, Time end, Types type, Date date);
