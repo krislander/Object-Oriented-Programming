@@ -3,6 +3,7 @@
 #include "Person.h"
 #include "LList.h"
 #include "Time.h"
+#include <cstring>
 
 class BusinessTask :public Task
 {
@@ -30,7 +31,8 @@ public:
 	void write(ofstream& stream);
 	void read(ifstream& stream);
 	void initializeTask(int day, int month, int type);
-
+	
+	BusinessTask* clone() const;
 	BusinessTask();
 	BusinessTask(const char * title, const char * description, Time start, Time end, Types type, Date date, LList<Person> peopleAtMeeting, const char* location, Time duration, Person host);
 	BusinessTask(const BusinessTask& other);
@@ -92,6 +94,11 @@ void BusinessTask::read(ifstream & stream)
 
 void BusinessTask::initializeTask(int day, int month, int type)
 {
+	//Input za Date
+	Date date(day, month, 2018);
+	std::cout << "The date of the task is: ";
+	date.print();
+	
 	//title
 	std::cout << "Enter title of the task: " << std::endl;
 	cin.getline(this->title, strlen(this->title));
@@ -115,7 +122,8 @@ void BusinessTask::initializeTask(int day, int month, int type)
 	{
 		std::cout << "Invalid Time input! " << std::endl;
 	}
-	//Input za Date
+	
+	
 	std::cout << "How many people are gonna be at the event? " << std::endl;
 	int numberOfPeople;
 	cin >> numberOfPeople;
@@ -127,7 +135,7 @@ void BusinessTask::initializeTask(int day, int month, int type)
 	{
 		Person temp;
 		std::cout << "Enter the first name: " << std::endl;
-		char* name;
+		char* name = new char;
 		cin.getline(name, strlen(name) + 1);
 		temp.setFirstName(name);
 		cin.getline(name, strlen(name) + 1);
@@ -139,7 +147,7 @@ void BusinessTask::initializeTask(int day, int month, int type)
 	std::cout << "Host? " << std::endl;
 	Person tempoooraryy;
 	std::cout << "Enter the first name: " << std::endl;
-	char* name;
+	char* name = new char;
 	cin.getline(name, strlen(name) + 1);
 	tempoooraryy.setFirstName(name);
 	cin.getline(name, strlen(name) + 1);
@@ -147,6 +155,11 @@ void BusinessTask::initializeTask(int day, int month, int type)
 	this->peopleAtMeeting.push_back(tempoooraryy);
 }
 
+
+BusinessTask * BusinessTask::clone() const
+{
+	return new BusinessTask(*this);
+}
 
 //the big four
 BusinessTask::BusinessTask() :Task()

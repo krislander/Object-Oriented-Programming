@@ -48,6 +48,7 @@ public:
 	virtual void read(ifstream& stream);
 	virtual void initializeTask(int day, int month, int type) = 0;
 
+	virtual Task* clone() const = 0;
 	Task();
 	Task(const char* title, const char* description, Time start, Time end, Types type, Date date);
 	Task(const Task& other);

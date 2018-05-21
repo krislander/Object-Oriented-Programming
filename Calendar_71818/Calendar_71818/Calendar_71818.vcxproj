@@ -161,7 +161,6 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="Time.h" />
-    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Calendar_71818.cpp" />

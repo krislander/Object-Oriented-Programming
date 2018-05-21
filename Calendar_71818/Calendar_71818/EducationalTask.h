@@ -24,6 +24,7 @@ public:
 	void print();
 	void initializeTask(int day, int month, int type);
 
+	EducationalTask* clone() const;
 	EducationalTask();
 	EducationalTask(const char* title, const char* description, Time start, Time end, Types type, Date date, const char* subjectName, const char* stuffToDo);
 	EducationalTask(const EducationalTask& other);
@@ -65,6 +66,11 @@ void EducationalTask::initializeTask(int day, int month, int type)
 	cin.getline(this->stuffToDo, strlen(this->stuffToDo));
 }
 
+
+EducationalTask * EducationalTask::clone() const
+{
+	return new EducationalTask(*this);
+}
 
 EducationalTask::EducationalTask() : Task()
 {

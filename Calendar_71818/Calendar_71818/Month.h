@@ -5,7 +5,7 @@ class Month
 {
 private:
 	Day * days;
-	size_t currentSize;
+	int currentSize;
 
 	void copy(const Month& other)
 	{
@@ -22,9 +22,11 @@ private:
 	}
 public:
 	void print();
+	void includeTask(int day, const Task* task);
+	void removeTask(int day, const Task* task);
 
 	Month();
-	Month(size_t currentSize);
+	Month(int currentSize);
 	Month(const Month& other);
 	Month& operator=(const Month& other);
 	~Month();
@@ -39,13 +41,22 @@ void Month::print()
 	}
 }
 
+void Month::includeTask(int day, const Task* task)
+{
+	this->days[day].includeTask(task);
+}
+
+void Month::removeTask(int day, const Task* task)
+{
+}
+
 Month::Month()
 {
 	this->currentSize = 0;
 	this->days = 0;
 }
 
-Month::Month(size_t currentSize)
+Month::Month(int currentSize)
 {
 	this->currentSize = currentSize;
 	this->days = new Day[currentSize];

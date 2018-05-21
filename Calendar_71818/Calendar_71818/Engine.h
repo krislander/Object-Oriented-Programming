@@ -19,10 +19,10 @@ void Engine::addNewTask(Calendar & calendar)
 	int month = 0;
 	int day = 0;
 
-	while (type < 1 || type >3)
+	while (type < 1 || type>3)
 	{
 		std::cout << "What type of task do you want?" << std::endl;
-		std::cout << "Enter 1 for Business Task\n   Enter 2 for University task\n   Enter 3 for Entertainment Task: ";
+		std::cout << "   Enter 1 for Business Task\n   Enter 2 for University task\n   Enter 3 for Entertainment Task: ";
 		std::cin >> type;
 	}
 	while (month < 1 || month>12)
@@ -57,29 +57,30 @@ void Engine::addNewTask(Calendar & calendar)
 	}
 	if (type == 1)
 	{
-		Day one;
 		BusinessTask temp;
 		temp.initializeTask(day,month,type);
 		Task* tempp = new BusinessTask(temp);
-		one.addTask(tempp);
+		calendar.includeTask(day, month, tempp);
 		delete tempp;
 	}
 	else if (type == 2)
 	{
-		Day one;
 		EducationalTask temp;
 		temp.initializeTask(day, month, type);
 		Task* tempp = new EducationalTask(temp);
-		one.addTask(tempp);
+		calendar.includeTask(day, month, tempp);
 		delete tempp;
 	}
 	else if (type == 3)
 	{
-		Day one;
 		EntertainmentTask temp;
 		temp.initializeTask(day, month, type);
 		Task* tempp = new EntertainmentTask(temp);
-		one.addTask(tempp);
+		calendar.includeTask(day, month, tempp);
 		delete tempp;
 	}
+}
+
+void Engine::removeTask(Calendar & calendar)
+{
 }

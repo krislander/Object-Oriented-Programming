@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 
 class Person
@@ -28,6 +29,7 @@ public:
 	Person();
 	Person(const char* firstName, const char* lastName);
 	Person& operator=(const Person& other);
+	friend ostream& operator<<(ostream& stream, const Person& other);
 	Person(const Person& other);
 	~Person();	
 };
@@ -56,6 +58,10 @@ Person & Person::operator=(const Person & other)
 		this->copy(other);
 	}
 	return *this;
+}
+ostream& operator<<(std::ostream& stream, const Person& other)
+{
+	return stream << other.firstName << other.lastName;
 }
 
 Person::Person(const Person & other)

@@ -22,13 +22,13 @@ class LList
 private:
 	Node<T>* first;
 	Node<T>* last;
-	size_t size;
+	int size;
 
 
 	void copy(const LList& other)
 	{
 		Node<T>* temp = other.first;
-		for (size_t i = 0; i < other.getNumberOfElements(); i++)
+		for (int i = 0; i < other.getNumberOfElements(); i++)
 		{
 			push_back(temp->data);
 			temp = temp->next;

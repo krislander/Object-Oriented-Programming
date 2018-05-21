@@ -6,8 +6,8 @@ class Day
 {
 private:
 	Task** tasks;
-	size_t currentTasks;
-	size_t capacity;
+	int currentTasks;
+	int capacity;
 
 	void copy(const Day& other)
 	{
@@ -44,8 +44,11 @@ public:
 	Day& operator=(const Day& other);
 	~Day();
 
-	void addTask(Task*& task);
-	void removeTask(Task*& task);
+
+	void includeTask(const Task* task);
+	void removeTask(const Task* task);
+	/*void addTask(Task*& task);
+	void removeTask(Task*& task);*/
 	void printAllTasks() const;
 };
 
@@ -77,38 +80,52 @@ Day::~Day()
 	this->destroy();
 }
 
-void Day::addTask(Task*& task)
+//void Day::addTask(Task*& task)
+//{
+//	if (this->currentTasks >= this->capacity)
+//	{
+//		this->resize();
+//	}
+//
+//	this->tasks[this->currentTasks++] = task;
+//}
+//
+//void Day::removeTask(Task*& task)
+//{
+//	int index = -1;
+//	for (int i = 0; i < this->currentTasks; i++)
+//	{
+//		if (task == this->tasks[i])
+//		{
+//			index = i;
+//			break;
+//		}
+//	}
+//	if (index == -1) return;
+//
+//	Task** temp = new Task*[this->capacity];
+//	for (int i = 0, j = 0; i < this->currentTasks; i++, j++)
+//	{
+//		if (i == index) ++i;
+//		temp[j] = this->tasks[i];
+//	}
+//	this->destroy();
+//	this->tasks = temp;
+//	this->currentTasks--;
+//}
+
+void Day::includeTask(const Task* task)
 {
-	if (this->currentTasks >= this->capacity)
+	if (this->currentTasks>=this->capacity)
 	{
 		this->resize();
 	}
-
-	this->tasks[this->currentTasks++] = task;
+	this->tasks[currentTasks] = task->clone();
+	this->currentTasks++;
 }
 
-void Day::removeTask(Task*& task)
+void Day::removeTask(const Task* task)
 {
-	size_t index = -1;
-	for (size_t i = 0; i < this->currentTasks; i++)
-	{
-		if (task == this->tasks[i])
-		{
-			index = i;
-			break;
-		}
-	}
-	if (index == -1) return;
-
-	Task** temp = new Task*[this->capacity];
-	for (size_t i = 0, j = 0; i < this->currentTasks; i++, j++)
-	{
-		if (i == index) ++i;
-		temp[j] = this->tasks[i];
-	}
-	this->destroy();
-	this->tasks = temp;
-	this->currentTasks--;
 }
 
 void Day::printAllTasks() const

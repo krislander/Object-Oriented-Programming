@@ -33,7 +33,7 @@ public:
 	void print();
 	void initializeTask(int day, int month, int type);
 
-
+	EntertainmentTask* clone() const;
 	EntertainmentTask();
 	EntertainmentTask(const EntertainmentTask& other);
 	EntertainmentTask(const char* title, const char* description, Time start, Time end, Types type, Date date, TypesOfEntertainment typeOfFun, const char* location);
@@ -85,6 +85,11 @@ void EntertainmentTask::initializeTask(int day, int month, int type)
 	std::cout << "Where is the location? " << std::endl;
 	cin.getline(this->location, strlen(this->location));
 	//weathercheck???
+}
+
+EntertainmentTask * EntertainmentTask::clone() const
+{
+	return new EntertainmentTask(*this);
 }
 
 EntertainmentTask::EntertainmentTask() :Task()

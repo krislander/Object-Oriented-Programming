@@ -21,6 +21,8 @@ private:
 	}
 public:
 	void print();
+	void includeTask(int day,int month, const Task* task);
+	void removeTask(int day, int month, const Task* task);
 
 	Calendar();
 	Calendar(const Calendar& other);
@@ -35,6 +37,16 @@ void Calendar::print()
 		this->months[i].print();
 	}
 }
+
+void Calendar::includeTask(int day, int month, const Task* task)
+{
+	this->months[month].includeTask(day, task);
+}
+
+//void Calendar::removeTask(int day, int month, //tuka ima title)
+//{
+//	
+//}
 
 Calendar::Calendar()
 {

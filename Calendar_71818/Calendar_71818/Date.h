@@ -75,6 +75,10 @@ void Date::print()
 		{
 			cout << "Date: "<<"0" << day << ". " << "0" << month << ". " << year << endl;
 		}
+		cout << "Date: " << "0" << day << ". " << month << ". " << year << endl;
+	}
+	else if (month < 10)
+	{
 		cout << "Date: " << day << ". " << "0" << month << ". " << year << endl;
 	}
 	cout << "Date: " << day << ". "  << month << ". " << year << endl;
