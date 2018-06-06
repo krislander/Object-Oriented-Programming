@@ -1,0 +1,11 @@
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\obj\Debug\netcoreapp2.0\DungeonsAndDragonsGame.csproj.CoreCompileInputs.cache
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\obj\Debug\netcoreapp2.0\DungeonsAndDragonsGame.AssemblyInfoInputs.cache
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\obj\Debug\netcoreapp2.0\DungeonsAndDragonsGame.AssemblyInfo.cs
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\obj\Debug\netcoreapp2.0\DungeonsAndDragonsGame.csprojAssemblyReference.cache
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\bin\Debug\netcoreapp2.0\DungeonsAndDragonsGame.deps.json
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\bin\Debug\netcoreapp2.0\DungeonsAndDragonsGame.runtimeconfig.json
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\bin\Debug\netcoreapp2.0\DungeonsAndDragonsGame.runtimeconfig.dev.json
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\bin\Debug\netcoreapp2.0\DungeonsAndDragonsGame.dll
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\bin\Debug\netcoreapp2.0\DungeonsAndDragonsGame.pdb
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\obj\Debug\netcoreapp2.0\DungeonsAndDragonsGame.dll
+D:\Github\Object-Oriented-Programming\DungeonsAndDragonsGame\DungeonsAndDragonsGame\obj\Debug\netcoreapp2.0\DungeonsAndDragonsGame.pdb
