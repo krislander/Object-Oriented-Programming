@@ -1,0 +1,11 @@
+D:\training\MileStoneSystems\Exercise1\bin\Debug\netcoreapp2.0\Exercise1.deps.json
+D:\training\MileStoneSystems\Exercise1\bin\Debug\netcoreapp2.0\Exercise1.runtimeconfig.json
+D:\training\MileStoneSystems\Exercise1\bin\Debug\netcoreapp2.0\Exercise1.runtimeconfig.dev.json
+D:\training\MileStoneSystems\Exercise1\bin\Debug\netcoreapp2.0\Exercise1.dll
+D:\training\MileStoneSystems\Exercise1\bin\Debug\netcoreapp2.0\Exercise1.pdb
+D:\training\MileStoneSystems\Exercise1\obj\Debug\netcoreapp2.0\Exercise1.csprojAssemblyReference.cache
+D:\training\MileStoneSystems\Exercise1\obj\Debug\netcoreapp2.0\Exercise1.csproj.CoreCompileInputs.cache
+D:\training\MileStoneSystems\Exercise1\obj\Debug\netcoreapp2.0\Exercise1.AssemblyInfoInputs.cache
+D:\training\MileStoneSystems\Exercise1\obj\Debug\netcoreapp2.0\Exercise1.AssemblyInfo.cs
+D:\training\MileStoneSystems\Exercise1\obj\Debug\netcoreapp2.0\Exercise1.dll
+D:\training\MileStoneSystems\Exercise1\obj\Debug\netcoreapp2.0\Exercise1.pdb
